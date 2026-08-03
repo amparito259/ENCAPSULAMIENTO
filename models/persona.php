@@ -18,11 +18,19 @@ class Persona {
         return $this->nombre; 
     }
     
-    public function getApellidos() { return $this->apellidos; }
-    public function getEdad() { return $this->edad; }
-    public function getCorreo() { return $this->correo; }
+    public function getApellidos() { 
+        return $this->apellidos; 
+    }
+    
+    public function getEdad() { 
+        return $this->edad; 
+    }
+    
+    public function getCorreo() { 
+        return $this->correo; 
+    }
 
-    // Setters
+    // Setters sencillos
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
