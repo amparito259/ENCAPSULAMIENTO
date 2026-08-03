@@ -5,7 +5,6 @@ class Persona {
     private $edad;
     private $correo;
 
-    // Constructor
     public function __construct($nombre, $apellidos, $edad, $correo) {
         $this->setNombre($nombre);
         $this->setApellidos($apellidos);
@@ -30,24 +29,35 @@ class Persona {
         return $this->correo; 
     }
 
-    // Setters sencillos
     public function setNombre($nombre) {
-        $this->nombre = $nombre;
+        if (is_string($nombre) && trim($nombre) !== "") {
+            $this->nombre = $nombre;
+        } else {
+            echo "<p>Error en Nombre: No se puede dejar el nombre vacio o con solo espacios.</p>";
+        }
     }
 
     public function setApellidos($apellidos) {
-        $this->apellidos = $apellidos;
+        if (is_string($apellidos) && trim($apellidos) !== "") {
+            $this->apellidos = $apellidos;
+        } else {
+            echo "<p>Error en Apellidos: El apellido no es valido o esta vacio.</p>";
+        }
     }
 
     public function setEdad($edad) {
-        $this->edad = $edad;
+        if (is_numeric($edad) && $edad >= 0) {
+            $this->edad = $edad;
+        } else {
+            echo "<p>Error en Edad: La edad no puede ser negativa ($edad).</p>";
+        }
     }
 
     public function setCorreo($correo) {
         $this->correo = $correo;
     }
 
-    // Método saludar
+    // Metodo saludar
     public function saludar() {
         return "Hola, me llamo $this->nombre $this->apellidos, tengo $this->edad años y mi correo es $this->correo.";
     }
